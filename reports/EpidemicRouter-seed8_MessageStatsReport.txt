@@ -1,0 +1,20 @@
+Message stats for scenario EpidemicRouter-seed8
+sim_time: 43200.1000
+created: 1463
+started: 61287
+relayed: 33662
+aborted: 27622
+dropped: 33541
+removed: 0
+delivered: 376
+delivery_prob: 0.2570
+response_prob: 0.0000
+overhead_ratio: 88.5266
+latency_avg: 4553.5543
+latency_med: 3596.9000
+hopcount_avg: 4.6064
+hopcount_med: 4
+buffertime_avg: 1346.9253
+buffertime_med: 883.4000
+rtt_avg: NaN
+rtt_med: NaN
