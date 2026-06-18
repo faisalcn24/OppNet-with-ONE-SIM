@@ -43,8 +43,6 @@ A protocol comparison ran on the bundled default Helsinki scenario (12-hour sim,
 
 Spray and Wait dominates on every axis — roughly 1.9× the delivery of Epidemic with about 1/5th the overhead — because its bounded copy count (`nrofCopies = 6`) avoids the buffer thrashing that flooding routers cause: Epidemic and PRoPHET drop 30–40 k messages per run versus ~12 k for SnW. PRoPHET edges Epidemic on delivery and hop count but pays for its forwarding decisions with the highest overhead of the three.
 
-![Per-seed delivery probability — ranking holds in every one of 10 seeds](doc/img/delivery_per_seed.png)
-
 The 95 % CIs do not overlap for any pairwise comparison on delivery or overhead, and the protocol ranking holds in every single seed — so **SnW > PRoPHET > Epidemic** on this scenario is statistically distinguishable, not a sampling artefact.
 
 The sweep uses a small `.tools/multi_seed.txt` override (`MovementModel.rngSeed = [1; …; 10]` plus a seed-suffixed `Scenario.name`) chained after each protocol config; plots are regenerated from the raw reports with `.tools/plot_results.py`.
