@@ -63,26 +63,7 @@ fig.tight_layout()
 fig.savefig(OUT / "protocol_comparison.png", dpi=130, bbox_inches="tight")
 plt.close(fig)
 
-# ---- Plot 2: overhead vs delivery scatter (per-seed) ----
-fig, ax = plt.subplots(figsize=(7, 5))
-for label, prefix, color in PROTOS:
-    rows = data[label]
-    xs = [r["overhead_ratio"] for r in rows]
-    ys = [r["delivery_prob"] for r in rows]
-    ax.scatter(xs, ys, color=color, s=55, alpha=0.65, edgecolor="black", linewidth=0.4, label=label)
-    mx = sum(xs)/len(xs); my = sum(ys)/len(ys)
-    ax.scatter([mx], [my], color=color, marker="X", s=200, edgecolor="black", linewidth=1.2, zorder=5)
-ax.set_xlabel("Overhead ratio  →  worse")
-ax.set_ylabel("Delivery probability  →  better")
-ax.set_title("Delivery vs overhead — 10 seeds per protocol\n(X marks the mean; ideal is upper-left)")
-ax.grid(True, alpha=0.3)
-ax.legend(loc="center right")
-ax.set_xscale("log")
-fig.tight_layout()
-fig.savefig(OUT / "delivery_vs_overhead.png", dpi=130, bbox_inches="tight")
-plt.close(fig)
-
-# ---- Plot 3: per-seed delivery probability dot plot ----
+# ---- Plot 2: per-seed delivery probability dot plot ----
 fig, ax = plt.subplots(figsize=(9, 4.2))
 seeds = list(range(1, 11))
 for label, prefix, color in PROTOS:
